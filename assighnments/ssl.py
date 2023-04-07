@@ -33,10 +33,9 @@ class LinkedList:
 		if self.current is self.tail:
 			self.tail = self.before
 
-			# 중요 : current가 next가 아닌 before로 변경된다.
-		else:
-			self.before.next = self.current.next
-			self.current = self.before 
+		# 중요 : current가 next가 아닌 before로 변경된다.
+		self.before.next = self.current.next
+		self.current = self.before 
 
 		self.num_of_data -= 1
 		return pop_data
