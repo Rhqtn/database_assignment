@@ -84,6 +84,22 @@ class LinkedList:
 			new_data.next = self.current.next
 			self.before.next = new_data
 			self.current = self.before.next
+
+	def remove(self, key):
+		self.first()
+		count = 1
+		for i in range(self.size()-1):
+			if self.current == key:
+				self.delete()
+				print(f"({count}번째 원소{key}를 삭제합니다")
+				return
+			elif self.current is self.tail:
+				print("해당하는 원소가 없습니다.")
+				return
+			else:
+				self.next()
+				count += 1
+		
 			
 
 
