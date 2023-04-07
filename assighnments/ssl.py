@@ -4,7 +4,6 @@ class Node:
 		self.data = data
 		self.next = None
 
-
 # LinkedList 클래스 정의
 class LinkedList:
 
@@ -35,12 +34,12 @@ class LinkedList:
 			self.tail = self.before
 
 			# 중요 : current가 next가 아닌 before로 변경된다.
+		else:
 			self.before.next = self.current.next
 			self.current = self.before 
 
-			self.num_of_data -= 1
-
-			return pop_data
+		self.num_of_data -= 1
+		return pop_data
 
 	# first 메소드 (search1 - 맨 앞의 노드 검색, before, current 변경)
 	def first(self):
