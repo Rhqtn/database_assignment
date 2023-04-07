@@ -64,3 +64,9 @@ class LinkedList:
 	# size 메소드
 	def size(self):
 		return self.num_of_data 
+	
+	def traverse_all(self):
+		print(self.first())
+		for i in range(self.num_of_data):
+			print(" -> ", self.next)
+			
