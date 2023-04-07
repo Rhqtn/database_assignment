@@ -68,9 +68,9 @@ class LinkedList:
 		return self.num_of_data 
 	
 	def traverse_all(self):
-		print(self.first())
+		print("head -> "+self.first(), end="")
 		for i in range(self.num_of_data):
-			print(" -> ", self.next)
+			print(" -> "+ self.next, end="")
 
 	def insert_at(self, position, new_data):
 		if position <= 0:
@@ -102,7 +102,23 @@ class LinkedList:
 				self.next()
 				count += 1
 		
-			
+test_list = LinkedList(100)
+#test append()
+test_list.append(200)
+test_list.append(4000)
+test_list.append(370)
+test_list.append(770)
+test_list.append(480)
+test_list.append(150)
+test_list.append(370)
+#test traverse_all()
+test_list.traverse_all()
+test_list.insert_at(4, 990)
+#test error msg when position <= 0
+test_list.insert_at(0, 990)
+test_list.remove(4000)
+#test "해당하는 원소가 없습니다" msg
+test_list.remove(0)
 
 
 
