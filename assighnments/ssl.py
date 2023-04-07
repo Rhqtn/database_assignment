@@ -5,7 +5,7 @@ class Node:
 	def __init__(self, data):
 		self.data = data
 		self.next = None
-
+	
 # LinkedList 클래스 정의
 class LinkedList:
 
@@ -19,6 +19,9 @@ class LinkedList:
 		self.before = None
 
 		self.num_of_data = 0
+	
+	def __str__(self):
+		return f"{self.data}"
 
 	# append 메소드 (insert - 맨 뒤에 노드 추가, tail과 node의 next, 데이터 개수 변경)
 	def append(self, data):
@@ -62,19 +65,19 @@ class LinkedList:
 		self.current = self.current.next
 
 		return self.current.data
-
+	
 	# size 메소드
 	def size(self):
 		return self.num_of_data 
-	
+
 	def traverse_all(self):
-		print("head -> "+self.first(), end="")
+		print("\nhead -> ",self.first(), end="")
 		for i in range(self.num_of_data):
-			print(" -> "+ self.next, end="")
+			print(" -> ",self.next(), end="")
 
 	def insert_at(self, position, new_data):
 		if position <= 0:
-			print("Error")
+			print("\nError")
 			return
 		elif position > self.size():
 			self.append(new_data)
@@ -90,19 +93,19 @@ class LinkedList:
 	def remove(self, key):
 		self.first()
 		count = 1
-		for i in range(self.size()-1):
-			if self.current == key:
+		for i in range(self.size()):
+			if self.current.data == key:
 				self.delete()
-				print(f"({count}번째 원소{key}를 삭제합니다")
+				print(f"{count}번째 원소 {key}를 삭제합니다")
 				return
-			elif self.current is self.tail:
+			elif count == self.size():
 				print("해당하는 원소가 없습니다.")
 				return
 			else:
 				self.next()
 				count += 1
 		
-test_list = LinkedList(100)
+test_list = LinkedList()
 #test append()
 test_list.append(200)
 test_list.append(4000)
@@ -114,6 +117,7 @@ test_list.append(370)
 #test traverse_all()
 test_list.traverse_all()
 test_list.insert_at(4, 990)
+test_list.traverse_all()
 #test error msg when position <= 0
 test_list.insert_at(0, 990)
 test_list.remove(4000)
