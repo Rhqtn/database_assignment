@@ -1,3 +1,5 @@
+# 201800538 헝가리어과 김건우 *정상 동작*
+
 # Node 클래스 정의
 class Node:
 	def __init__(self, data):
