@@ -93,14 +93,19 @@ class LinkedList:
 	def remove(self, key):
 		self.first()
 		count = 1
+		has_removed = 0
 		for i in range(self.size()):
 			if self.current.data == key:
 				self.delete()
 				print(f"{count}번째 원소 {key}를 삭제합니다")
-				return
+				self.next()
+				has_removed = 1
 			elif count == self.size():
-				print("해당하는 원소가 없습니다.")
-				return
+				if has_removed == 1:
+					return
+				else:
+					print("해당하는 원소가 없습니다.")
+					return
 			else:
 				self.next()
 				count += 1
